@@ -59,6 +59,26 @@ grails.exceptionresolver.params.exclude = ['password']
 // configure auto-caching of queries by default (if false you can cache individual queries with 'cache: true')
 grails.hibernate.cache.queries = false
 
+// Custom configurations
+geonames {
+    ids {
+        us = 6252001
+    }
+    urls {
+        // URL to find the US' geonameId.
+        us_info = "http://api.geonames.org/searchJSON?name_equals=united%20states&username=jqtruong"
+        // I'm assuming that the id won't ever change and so i'm hardcoding it into the url to get all
+        // the US' children (which includes its capital which will have to be filtered out).
+        // I'm also hardcoding my username.  If the app needs to be more flexible, e.g. use a specified
+        // username or geonameId, i would use a technique described at:
+        // http://stackoverflow.com/questions/7305265/groovy-grails-fill-up-string-placeholder-with-current-instance
+        // in which i would add unique placeholders to be replaced when these urls are retrieved.
+        us_children = "http://api.geonames.org/childrenJSON?geonameId=6252001&username=jqtruong"
+        // Placename will be tacked on when called.
+        state_postalCodes = "http://api.geonames.org/postalCodeSearch?username=jqtruong&country=us&placename="
+    }
+}
+
 environments {
     development {
         grails.logging.jul.usebridge = true
@@ -76,6 +96,8 @@ log4j = {
     //appenders {
     //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
     //}
+
+    // debug 'grails.app'
 
     error  'org.codehaus.groovy.grails.web.servlet',        // controllers
            'org.codehaus.groovy.grails.web.pages',          // GSP
