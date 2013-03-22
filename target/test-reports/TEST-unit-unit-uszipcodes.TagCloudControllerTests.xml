@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="1" failures="0" hostname="Racoon.local" name="uszipcodes.TagCloudControllerTests" tests="1" time="0.304" timestamp="2013-03-22T06:43:15">
+  <properties />
+  <testcase classname="uszipcodes.TagCloudControllerTests" name="testIndex" time="0.303">
+    <error message="Cannot invoke method count() on null object" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke method count() on null object
+	at uszipcodes.TagCloudControllerTests.testIndex(TagCloudControllerTests.groovy:18)
+</error>
+  </testcase>
+  <system-out><![CDATA[--Output from testIndex--
+]]></system-out>
+  <system-err><![CDATA[--Output from testIndex--
+]]></system-err>
+</testsuite>
